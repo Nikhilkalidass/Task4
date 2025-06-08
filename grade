@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Student {
+public static void grade(int marks ) {
+	
+	if(marks>=100) {
+		System.out.println("Grade A+");
+	}
+	else if(marks<=90) {
+		System.out.println("Grade B+");
+	}
+	
+	else if(marks<=80) {
+		System.out.println("Grade C+");
+	}
+}
+
+public static void main(String args[]) {
+	Scanner ga=new Scanner(System.in);
+	System.out.println("Enter the marks for the grade:");
+	int marks =ga.nextInt();
+	
+	grade(marks);
+	
+	ga.close();
+}
+
+
+
+
+
+
+}
