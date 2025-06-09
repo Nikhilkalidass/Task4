@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class SimpleStringAnalyzer {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter a sentence: ");
+        String sentence = sc.nextLine();
+
+        char[] letters = sentence.toCharArray();  // Convert sentence to character array
+
+        int wordCount = 0;
+        int charCount = 0;
+        String longestWord = "";
+        String currentWord = "";
+
+        System.out.print("\nReversed sentence: ");
+        for (int i =  letters.length -1; i >= 0; i--) {
+            System.out.print(letters[i]);  // Reversing by printing backwards
+        }
+        System.out.println();
+
+        for (int i = 0; i < letters.length; i++) {
+            char ch = letters[i];
+
+            if (ch != ' ') {
+                charCount++; // Count characters (excluding spaces)
+               currentWord += ch; // Build word character by character
+            }
+
+            if (ch == ' ' || i == letters.length - 1) {
+                if (currentWord.length() > 0) {
+                    wordCount++;
+
+                    if (currentWord.length() > longestWord.length()) {
+                        longestWord = currentWord;
+                    }
+
+                    currentWord = ""; // Reset for next word
+                }
+           }
+        }
+//
+        // Output Results
+        System.out.println("Word count      : " + wordCount);
+        System.out.println("Character count : " + charCount);
+     System.out.println("Longest word    : " + longestWord);
+
+        sc.close();
+    }
+}
+
